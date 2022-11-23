@@ -1,7 +1,6 @@
 const express = require("express");
 const { body, validationResult } = require('express-validator');
 
-const Post = require("../Model/Register");
 const {Login, Registeration} = require("./Callback/RegisterCallback");
 
 const router = express.Router();

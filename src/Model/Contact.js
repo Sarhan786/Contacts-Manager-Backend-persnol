@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ContactSchema = new Schema({
-  usersContacts: [
+  userContacts: [
     {
       name: { type: String },
       Designation: String,
@@ -11,11 +11,11 @@ const ContactSchema = new Schema({
       Email: String,
       Phone_number: String,
       Country: String,
+      date: { type: String },
+      Time: { type: String },
     },
   ],
-  Users : { type: mongoose.Schema.Types.ObjectId , ref : "Resister"},
-  date : {type : String},
-  Time : {type : String}
+  User: { type: Schema.Types.ObjectId, ref: "resisters" },
 });
 
 module.exports = mongoose.model("Contact", ContactSchema);
