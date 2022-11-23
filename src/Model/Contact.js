@@ -11,8 +11,6 @@ const ContactSchema = new Schema({
       Email: String,
       Phone_number: String,
       Country: String,
-      date: { type: String },
-      Time: { type: String },
     },
   ],
   User: { type: Schema.Types.ObjectId, ref: "resisters" },

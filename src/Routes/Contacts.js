@@ -1,17 +1,17 @@
 const express = require("express");
 const { PATCH, GET, DELETE, DELETEMANY } = require("./Callback/ContactsCallback");
-
+const { Tokenverify } = require("./Callback/ContactsCallback");
 
 
 const router = express.Router();
 
-router.patch("/:id", PATCH);
+router.patch("/", PATCH);
 
-router.get("/", GET);
+router.get("/",GET);
 
-router.delete("/deleteOne/", DELETE);
+router.delete("/deleteOne/",DELETE);
 
-router.delete("/deletemany/", DELETEMANY);
+router.delete("/deletemany/",DELETEMANY);
 
 
 

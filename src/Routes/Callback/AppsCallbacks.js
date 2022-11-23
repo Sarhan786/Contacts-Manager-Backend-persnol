@@ -6,6 +6,7 @@ env.config();
 const Tokenverify = async (req, res, next) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization;
+    console.log(token)
     console.log("Verify token");
     if (token) {
       jwt.verify(token, process.env.SECRETKEY, function (err, decoded) {

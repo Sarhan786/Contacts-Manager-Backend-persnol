@@ -2,23 +2,17 @@ const Contact = require("../../Model/Contact");
 
 const PATCH = async (req, res) => {
   try {
-    console.log(req.params.id)
-    const findUser = await Contact.find({User : req.params.id});
-    console.log(findUser.length > 0);
+    const findUser = await Contact.find({User : req.user._id});
     if(findUser.length > 0){
-      for (let elem of req.body){
-        const Result = await Contact.findByIdAndUpdate({User : req.params.id},{$push:{userContacts: elem}});
+      for(let elem of req.body){
+      await Contact.updateOne({User : req.user._id},{$push:{userContacts: elem}},{new:true})
       }
     }else{
-      const ContactData = await Contact.create({
+        await Contact.create({
         userContacts : req.body,
-        User : req.params.id
+        User : req.user._id
       });
     }
-    res.status(200).json({
-      status: "Success",
-      ContactData,
-    });
   } catch (e) {
     res.status(500).json({
       status: "Failed",
@@ -29,7 +23,6 @@ const PATCH = async (req, res) => {
 
 
 const GET = async (req, res) => {
-  console.log(req.resister);
   try {
     const ContactData = await Contact.find({ User: req.user._id});
     res.status(200).json({
