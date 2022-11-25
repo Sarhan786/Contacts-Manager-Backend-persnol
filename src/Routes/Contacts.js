@@ -9,9 +9,9 @@ router.patch("/", PATCH);
 
 router.get("/",GET);
 
-router.delete("/deleteOne/",DELETE);
+router.patch("/deleteOne/",DELETE);
 
-router.delete("/deletemany/",DELETEMANY);
+router.patch("/deletemany/",DELETEMANY);
 
 
 
